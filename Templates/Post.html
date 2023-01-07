@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title>
+            Post
+    </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none; 
+        }
+        body{
+            background-image: url("../Media/bg.png") ;
+            background-size: cover;
+        }
+        .container{
+            padding-top: 80px;
+        }
+        img{
+            height: 400px;
+            width: 650px;
+        }
+        #post_size{
+            width: 750px;
+        }
+    </style> 
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    {% for j in post%}
+    <div class="container my-4 " id="post_size">
+    <div class="card">
+        <a href="{% url 'userprofile' j.username %} " >
+            <div class="card-header"><h2>{{j.username}}</h2></a>{{j.date}}</div>
+
+        <div class="card-body">
+          <img src="{{j.image.url}}" >
+          <p class="card-text"> {{j.comment}}</p>
+          <hr size="30px">
+          <h4>{{j.like}}  <a href="#" class="btn btn-primary mr-4">Likes</a>
+            <a href="#" class="btn btn-info mr-4"> Comment </a>
+            <a href="#" class="btn btn-info mr-4"> Save </a>
+          <h4 class="mx-4">{{j.time}}</h4>
+        </div>
+      </div>
+</div>
+{%endfor%}
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
